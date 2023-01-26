@@ -27,6 +27,13 @@ if(APPLE)
     endif()
 endif()
 
+# Find Boost
+find_package(Boost
+  1.78.0
+  REQUIRED
+  COMPONENTS system
+)
+
 add_library(${PROJECT_NAME} STATIC)
 
 target_sources(${PROJECT_NAME}
@@ -36,7 +43,12 @@ target_sources(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME}
   PUBLIC
-    ${PROJECT_SOURCE_DIR}/include)
+    ${PROJECT_SOURCE_DIR}/include
+  PRIVATE
+    ${Boost_INCLUDE_DIRS}
+)
+
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
 
 IF(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Win32")
    execute_process(COMMAND ln -sf ${CMAKE_SOURCE_DIR}/build/compile_commands.json ${CMAKE_SOURCE_DIR}/compile_commands.json)
