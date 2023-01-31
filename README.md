@@ -2,7 +2,7 @@
 
 A cross platform driver for the CANdapter.
 
-For usage instructions, see the `docs` folder.
+For usage instructions and the overarching design philosophy, see the `docs` folder.
 
 ## Requirements
 
