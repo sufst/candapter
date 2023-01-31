@@ -21,6 +21,9 @@ private:
   uint8_t baud;
 
 public:
+  /// @brief              Driver class constructor
+  /// @param device       the path to the device to communicate with
+  /// @param baud_rate    the baud rate
   Candapter(std::string device, uint8_t baud_rate);
 };
 }; // namespace candapter

@@ -13,9 +13,9 @@
 
 #include "boost/asio.hpp"
 
-namespace candapter {
+using candapter::Candapter;
+
 Candapter::Candapter(std::string device, uint8_t baud_rate)
     : io(), device(device), baud(baud_rate), port(io, device) {
   port.set_option(boost::asio::serial_port_base::baud_rate(baud));
 }
-} // namespace candapter
